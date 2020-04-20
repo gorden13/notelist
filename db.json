@@ -1,0 +1,58 @@
+{
+  "notes": [
+    {
+      "title": "Изучить Vuel",
+      "tasks": [
+        {
+          "title": "прочитать книгу \"Величие Vue JS\"",
+          "completed": true
+        },
+        {
+          "title": "1посмотреть вебинар по vue ",
+          "completed": true
+        },
+        {
+          "title": "сделать пркактическое задание",
+          "completed": false
+        }
+      ],
+      "id": 2
+    },
+    {
+      "id": 3,
+      "title": "Заняться спортом",
+      "tasks": [
+        {
+          "title": "записаться на плавание",
+          "completed": false
+        },
+        {
+          "title": "начать заниматься футболом",
+          "completed": false
+        },
+        {
+          "title": "делать упражнеиня на пресс",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Апгрейдить комп",
+      "tasks": [
+        {
+          "title": "поменять видеокарту",
+          "completed": true
+        },
+        {
+          "title": "добавить оперативы",
+          "completed": false
+        },
+        {
+          "title": "купить новый моник",
+          "completed": false
+        }
+      ]
+    }
+  ]
+}
