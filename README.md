@@ -2,7 +2,7 @@
 
 > ToDo List App
 
-## Build Setup
+## Инициализация и запуск
 
 ``` bash
 # ---- локальная работа с проектом
@@ -16,8 +16,8 @@ $ npm run dev
 $ json-server --watch db.json
 ```
 
-$ url: https://thawing-crag-13714.herokuapp.com
-$ api: https://notesjsonserver.herokuapp.com/notes
+url: https://thawing-crag-13714.herokuapp.com
+api: https://notesjsonserver.herokuapp.com/notes
 
 Тестовое задание:
 
