@@ -12,35 +12,63 @@
       >
       <!-- ОБычный режим -->
       <div v-if="!hasEdit" class="todo-list__row__action-buttons">
-        <button title="открыть заметку" type="button" class="btn_sm" @click="openNote(row)">
+        <action-button
+          title="открыть заметку"
+          :btn-text="'открыть'"
+          @click.native="openNote(row)"
+        >
           <font-awesome-icon :icon="['fa', 'external-link-alt']" />
-        </button>
-        <button title="удалить заметку" type="button" class="btn_sm" @click="removeNote(row.id)">
+        </action-button>
+        <action-button
+          title="удалить заметку"
+          :btn-text="'удалить'"
+          @click.native="removeNote(row.id)"
+        >
           <font-awesome-icon :icon="['fa', 'trash']" />
-        </button>
+        </action-button>
       </div>
       <!-- Режим редактирования -->
       <div v-else v-show="!taskEditIsOn" class="todo-list__row__action-buttons">
-        <button
+        <action-button
           v-show="!isNoteEdit"
           title="редактировать заметку"
-          type="button"
-          @click="updateIsEditNote(!isNoteEdit)"
+          :btn-text="'редактировать'"
+          @click.native="updateIsEditNote(!isNoteEdit)"
         >
           <font-awesome-icon :icon="['fa', 'edit']" />
-        </button>
-        <button v-show="!isNoteEdit" title="удалить заметку" type="button" class="btn_sm" @click="removeNote(row.id)">
+        </action-button>
+        <action-button
+          v-show="!isNoteEdit"
+          title="удалить заметку"
+          :btn-text="'удалить'"
+          @click.native="removeNote(row.id)"
+        >
           <font-awesome-icon :icon="['fa', 'trash']" />
-        </button>
-        <button v-show="isNoteEdit" title="завершить" type="button" class="btn_sm" @click="saveNote">
+        </action-button>
+        <action-button
+          v-show="isNoteEdit"
+          title="завершить"
+          :btn-text="'завершить'"
+          @click.native="saveNote"
+        >
           <font-awesome-icon :icon="['fa', 'save']" />
-        </button>
-        <button v-show="isChange" title="вернуть изменения" type="button" class="btn_sm" @click="undoChanges({ title, tasks: note.tasks, id: note.id })">
+        </action-button>
+        <action-button
+          v-show="isChange"
+          title="вернуть изменения"
+          :btn-text="'вернуть'"
+          @click.native="undoChanges({ title, tasks: note.tasks, id: note.id })"
+        >
           <font-awesome-icon :icon="['fa', 'undo']" />
-        </button>
-        <button v-show="isNoteEdit && isChange" title="отменить изменения" type="button" class="btn_sm" @click="closeNoteTitleEdit">
+        </action-button>
+        <action-button
+          v-show="isNoteEdit && isChange"
+          title="отменить изменения"
+          :btn-text="'отменить'"
+          @click.native="closeNoteTitleEdit"
+        >
           <font-awesome-icon :icon="['fa', 'times']" />
-        </button>
+        </action-button>
       </div>
     </div>
     <slot />
@@ -50,8 +78,12 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import ModalView from '@/components/ModalWindow'
+import actionButton from '@/components/action-button'
 
 export default {
+  components: {
+    actionButton
+  },
   props: {
     row: {
       type: Object,
@@ -168,6 +200,18 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      @media (max-width: $screen-phone-max-width) {
+        align-items: stretch;
+        flex-direction: column;
+      }
+    }
+    &__action-buttons {
+       @media (max-width: $screen-phone-max-width) {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
     }
     &__tasks-list {
       display: flex;

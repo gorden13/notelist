@@ -10,28 +10,6 @@
   }
 }
 
-.navbar {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  background: #f7f6f6;
-  .navbar-nav {
-    display: flex;
-    flex-direction: row;
-    margin-left: 10px;
-    & > li {
-      padding: 10px;
-      a {
-        color: #757a80;
-        text-decoration: none;
-        &.active {
-          color: $main-title-color;
-        }
-      }
-    }
-  }
-}
-
 button {
 	cursor: pointer;
 	padding: 5px;
@@ -58,6 +36,40 @@ button {
 			&:hover {
 				background-color: $pr-btn-bg-hover-color;
 			}
+    }
+    
+    &_btn-secondary {
+      background-color: $btn-color;
+      color: $main-bg-btn-color;
+      border-radius: 3px;
+      padding: 10px;
+    }
+	}
+}
+
+.v--modal-background-click {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.v--modal-box {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+  width: auto !important;
+  padding: 0 20px !important;
+  left: 0 !important;
+  top: 0 !important;
+	h1 {
+		align-self: center;
+	}
+
+	.buttons {
+		justify-content: center;
+		display: flex;
+
+		button {
+			padding: 5px 15px;
 		}
 	}
 }

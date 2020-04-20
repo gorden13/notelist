@@ -66,7 +66,7 @@ export default {
 <style lang="scss" scoped>
 .todo-list {
   &__row {
-    width: 100%;
+    flex: 1;
   }
 }
 </style>

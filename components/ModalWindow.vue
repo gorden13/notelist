@@ -55,29 +55,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.modal-content {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  &__title {
-    padding: 10px 0;
-    color: $main-title-color;
-  }
-  &__message {
-    padding: 10px;
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: $main-title-color;
-  }
-  &__buttons {
+  .modal-content {
     display: flex;
-    position: relative;
-    width: 100%;
-    bottom: 0;
-    padding-bottom: 20px;
-    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    &__title {
+      padding: 10px 0;
+      color: $main-title-color;
+    }
+    &__message {
+      padding: 10px;
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: $main-title-color;
+    }
+    &__buttons {
+      display: flex;
+      position: relative;
+      width: 100%;
+      bottom: 0;
+      padding-bottom: 20px;
+      justify-content: space-around;
+    }
   }
-}
-
 </style>

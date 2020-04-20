@@ -18,41 +18,39 @@
       <input
         v-if="getTaskEditIndex === taskIndex"
         v-model="title"
+        class="task__body_input"
         type="text"
-        class="form-control"
-        aria-label="Large"
-        aria-describedby="inputGroup-sizing-sm"
-        @click.stop
       >
     </div>
-    <div v-if="isVisibleEditButtons" v-show="!isNoteEdit" class="buttons">
-      <button
+    <div v-if="isVisibleEditButtons" v-show="!isNoteEdit" class="task__buttons">
+      <action-button
         v-if="getTaskEditIndex === -1 && !isNoteEdit"
-        title="редактировать задачу"
         type="button"
-        class="btn btn-outline-primary btn-sm"
-        @click.stop="taskEditIndex = taskIndex"
+        class="btn"
+        title="редактировать задачу"
+        :btn-text="'редактировать'"
+        @click.native="taskEditIndex = taskIndex"
       >
         <font-awesome-icon :icon="['fa', 'edit']" />
-      </button>
-      <button
+      </action-button>
+      <action-button
         v-if="getTaskEditIndex === taskIndex"
+        class="btn"
         title="завершить"
-        type="button"
-        class="btn btn-outline-primary btn-sm"
-        @click.stop="saveTask"
+        :btn-text="'завершить'"
+        @click.native="saveTask"
       >
         <font-awesome-icon :icon="['fa', 'save']" />
-      </button>
-      <button
+      </action-button>
+      <action-button
         v-if="getTaskEditIndex === -1 && !isNoteEdit"
+        class="btn"
         title="удалить задачу"
-        type="button"
-        class="btn btn-outline-primary btn-sm"
-        @click.stop="removeTask(taskIndex)"
+        :btn-text="'удалить'"
+        @click.native="removeTask(taskIndex)"
       >
         <font-awesome-icon :icon="['fa', 'trash']" />
-      </button>
+      </action-button>
     </div>
   </div>
 </template>
@@ -60,7 +58,11 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import ModalView from '@/components/ModalWindow'
+import actionButton from '@/components/action-button'
 export default {
+  components: {
+    actionButton
+  },
   props: {
     taskIndex: {
       type: Number,
@@ -145,16 +147,26 @@ export default {
   align-items: center;
   padding: 10px;
   justify-content: space-between;
-  border-top: 2px solid #e4e4e4;
+  border-top: 1px solid #e4e4e4;
+  @media (max-width: $screen-phone-max-width) {
+    flex-direction: column;
+  }
   &__body {
     display: flex;
     align-items: center;
+    width: 500px;
+    @media (max-width: $screen-phone-max-width) {
+      width: 100%;
+    }
     &_title {
       margin: 0;
       font-size: 16px;
       &--completed {
         text-decoration: line-through;
       }
+    }
+    &_input {
+      width: 100%;
     }
     &_checkbox {
       margin-right: 10px;
@@ -171,6 +183,14 @@ export default {
         color: $pr-btn-bg-color;
         font-size: 16px;
       }
+    }
+  }
+  &__buttons {
+      @media (max-width: $screen-phone-max-width) {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      padding: 20px 0;;
     }
   }
   &:hover {
