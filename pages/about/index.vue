@@ -6,6 +6,7 @@
       <li>vuex</li>
       <li>json-server api</li>
       <li>vue-js-modal для диалогов и vue-toasted алертов</li>
+						<li>mobile-detect для мобильной вёрстки</li>
       <li>автоделой при коммите в ветку мастер</li>
     </ul>
   </div>
